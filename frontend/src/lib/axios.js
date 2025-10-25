@@ -1,9 +1,9 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-// in production, use the deployed backend URL
-const BASE_URL = import.meta.env.MODE === "development" 
-  ? "http://localhost:5001/api" 
-  : import.meta.env.VITE_API_URL || "/api";
+dotenv.config();
+// Use environment variables for the API URL
+const BASE_URL = process.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: BASE_URL,
